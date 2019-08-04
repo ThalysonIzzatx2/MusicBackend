@@ -7,7 +7,7 @@ var Downloader = function() {
     //Configure YoutubeMp3Downloader with your settings
     const filePath = path.resolve(__dirname, '..', 'musics');
     self.YD = new YoutubeMp3Downloader({
-        "ffmpegPath": "C:\\ffmpeg\\bin\\ffmpeg.exe",        // Where is the FFmpeg binary located?
+        "ffmpegPath": "/usr/local/bin/ffmpeg",        // Where is the FFmpeg binary located?
         "outputPath": filePath,    // Where should the downloaded and encoded files be stored?
         "youtubeVideoQuality": "highest",       // What video quality should be used?
         "queueParallelism": 2,                  // How many parallel downloads/encodes should be started?
