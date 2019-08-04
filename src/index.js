@@ -63,7 +63,7 @@ app.get('/:name', (req, res) => {
           console.log(response.title)
           res.redirect(`/${result.newName}`)
           //exclude music before play (10s delay)
-         setInterval(() => {fs.unlinkSync(`${dir}\\${result.newName}.mp3`)}, 10000 );
+         //setInterval(() => {fs.unlinkSync(`${dir}\\${result.newName}.mp3`)}, 10000 );
       });
       
       })
