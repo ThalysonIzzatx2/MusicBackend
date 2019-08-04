@@ -30,8 +30,8 @@ const SearchVideos = async (name) => {
     const response = await axios({ url: `https://www.youtube.com/results?search_query=${newName}`, method: 'get' })
     const objectReturn = await LeanResponse(response.data)
     const id = await this.links;
-    const newId = id.split('=');
-    console.log('Newid: '+ newId)
+    const newId = id.split("=");
+    console.log('Newid: '+ newId[1])
     console.log('newName: '+ newName)
     const data = { 
         newId: newId[1],
