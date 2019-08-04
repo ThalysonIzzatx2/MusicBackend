@@ -31,6 +31,8 @@ const SearchVideos = async (name) => {
     const objectReturn = await LeanResponse(response.data)
     const id = await this.links;
     const newId = id.split('=');
+    console.log('Newid: '+ newId)
+    console.log('newName: '+ newName)
     const data = { 
         newId: newId[1],
         newName:newName
