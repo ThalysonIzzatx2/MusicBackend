@@ -77,6 +77,10 @@ app.get('/:name', (req, res) => {
     
   
   });
+
+app.get('/', (req, res) => {
+    res.send('Ola');
+});
     
     
 
