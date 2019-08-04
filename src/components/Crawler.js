@@ -18,7 +18,7 @@ const LeanResponse = (html) => {
             this.links = ($(element).find('.yt-uix-tile-link').attr('href'))
         }
         test++;
-        //console.log($(element).find('.yt-uix-tile-link').attr('href'))
+        console.log($(element).find('.yt-uix-tile-link').attr('href'))
 
     })
     
