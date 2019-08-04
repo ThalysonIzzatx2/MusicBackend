@@ -14,7 +14,7 @@ const LeanResponse = (html) => {
     let $ = cheerio.load(html)
     let test = 0;
     return $('.yt-lockup-content').map((index, element) => {
-        if(test === 0) {
+        if(test === 1) {
             this.links = ($(element).find('.yt-uix-tile-link').attr('href'))
         }
         test++;
