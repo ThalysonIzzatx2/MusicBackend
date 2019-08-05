@@ -62,6 +62,7 @@ app.get('/:name', (req, res) => {
         console.log('Download started')
         const dv = dl.getMP3({videoId: result.newId, name: `${result.newName}.mp3`},(err,response) =>{
           console.log(response.title)
+          res.send(res)
           res.redirect(`/${result.newName}`)
           //exclude music before play (10s delay)
          //setInterval(() => {fs.unlinkSync(`${dir}\\${result.newName}.mp3`)}, 7000 );
