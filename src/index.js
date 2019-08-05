@@ -81,7 +81,7 @@ app.get('/:name', (req, res) => {
   });
 
 app.get('/', (req, res) => {
-    res.send('Digite o nome da musica após a barra...');
+    res.send('Digite o nome da musica após a barra /');
 });
     
     
