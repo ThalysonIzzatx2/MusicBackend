@@ -75,7 +75,7 @@
           console.log(response.title)
           let data = [response, { rota: 'stream/' + req.params.name }]
           const resposta = create(name, data)
-          res.send({ resposta })
+          return res.send({ resposta })
           //res.redirect(`/${result.newName}`)
           //exclude music before play (10s delay)
           //setInterval(() => {fs.unlinkSync(`${dir}\\${result.newName}.mp3`)}, 7000 );
@@ -85,7 +85,7 @@
       //if music is downloaded start stream
     } else {
       //stream
-      console.log('else')
+      console.log('else', name)
       return create(name, '')
 
     }
