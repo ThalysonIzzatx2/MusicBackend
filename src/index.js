@@ -33,6 +33,8 @@ const allFilesSync = (dir, fileList = []) => {
 
 //create stream in browser
 const create = (name, data) => {
+  if (fs.existsSync(name+'.json'))
+   return fs.readSync(name+'.json')
   let nData = JSON.stringify(data)
   fs.writeFileSync(name+'.json', nData)
   return data
@@ -81,7 +83,8 @@ app.get('/:name', (req, res) => {
     //if music is downloaded start stream
     } else {
         //stream
-      stream(req.params.name, res) 
+        create(res.params.name, '')
+       
     }
     //
     
