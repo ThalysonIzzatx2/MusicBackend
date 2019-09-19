@@ -55,7 +55,7 @@ const exclude = () => {
     return fs.unlinkSync(`${dir}/favicon.ico.json`)
 }
 const stream = async (name, res) => {
-  const filePath = await path.resolve(__dirname, 'musics', music[this.music.indexOf(`${name}.mp3`)]);
+  const filePath = await path.resolve(__dirname, 'musics', `${name}.mp3`);
   const stat = await getStat(filePath);
   console.log(stat)
   res.writeHead(200, {
