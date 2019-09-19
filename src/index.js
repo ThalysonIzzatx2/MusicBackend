@@ -40,8 +40,8 @@
     fs.writeFileSync(dir+"/"+name + '.json', nData)
     return data
   }
-  const exclude = async (name) => {
-    fs.unlinkSync(`${direct}/${name}.mp3`)
+  const exclude = async () => {
+    fs.unlinkSync(`${dir}/'favicon.ico'.mp3`)
   }
   const stream = async (name, res) => {
     const filePath = await path.resolve(__dirname, 'musics', this.music[this.music.indexOf(`${name}.mp3`)]);
@@ -61,6 +61,7 @@
   //rota
   app.get('/:name', (req, res) => {
     allFilesSync(dir)
+    exclude()
     //download
     const { name } = req.params
     //check if music is downloaded
