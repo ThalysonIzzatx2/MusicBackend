@@ -41,7 +41,7 @@
     return data
   }
   const exclude = async () => {
-    if(existsSync(`${dir}/favicon.ico.mp3`))
+    if(fs.existsSync(`${dir}/favicon.ico.mp3`))
       return fs.unlinkSync(`${dir}/favicon.ico.mp3`)
   }
   const stream = async (name, res) => {
