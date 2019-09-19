@@ -34,7 +34,7 @@ const allFilesSync = (dir, fileList = []) => {
 //create stream in browser
 const create = (name, data) => {
   if (fs.existsSync(name + '.json')) {
-    const file = fs.readSync(name + '.json')
+    const file = fs.readFileSync(name + '.json')
     return JSON.parse(file)
   }
   let nData = JSON.stringify(data)
