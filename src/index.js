@@ -86,8 +86,8 @@
     } else {
       //stream
       console.log('else', name)
-      return create(name, '')
-
+      const resposta = create(name, '')
+      res.send({resposta})
     }
     //
 
