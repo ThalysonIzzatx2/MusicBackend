@@ -33,7 +33,7 @@
 
   //create stream in browser
   const create = (name, data) => {
-    if (fs.existsSync(name + '.json'))
+    if (fs.existsSync(dir+"/"+name + '.json'))
       return JSON.parse(fs.readFileSync(dir+"/"+name + '.json'))
     console.log('não existe')
     let nData = JSON.stringify(data)
@@ -41,7 +41,8 @@
     return data
   }
   const exclude = async () => {
-    fs.unlinkSync(`${dir}/favicon.ico.mp3`)
+    if(existsSync(`${dir}/favicon.ico.mp3`))
+      return fs.unlinkSync(`${dir}/favicon.ico.mp3`)
   }
   const stream = async (name, res) => {
     const filePath = await path.resolve(__dirname, 'musics', this.music[this.music.indexOf(`${name}.mp3`)]);
