@@ -35,7 +35,7 @@ const allFilesSync = (dir, fileList = []) => {
     )
   })
   this.music = fileList;
-  console.log(this.music)
+  console.log(music)
 
 }
 
@@ -48,14 +48,14 @@ const create = (name, data) => {
   fs.writeFileSync(dir + "/" + name + '.json', nData)
   return data
 }
-const exclude = async () => {
+const exclude = () => {
   if (fs.existsSync(`${dir}/favicon.ico.mp3`))
     return fs.unlinkSync(`${dir}/favicon.ico.mp3`)
   if (fs.existsSync(`${dir}/favicon.ico.json`))
     return fs.unlinkSync(`${dir}/favicon.ico.json`)
 }
 const stream = async (name, res) => {
-  const filePath = await path.resolve(__dirname, 'musics', this.music[this.music.indexOf(`${name}.mp3`)]);
+  const filePath = path.resolve(__dirname, 'musics', this.music[this.music.indexOf(`${name}.mp3`)]);
   const stat = await getStat(filePath);
   console.log(stat)
   res.writeHead(200, {
@@ -77,7 +77,7 @@ app.get('/:name', (req, res) => {
   const { name } = req.params
   //check if music is downloaded
   //if music is not downloaded start convert and download
-  if (this.music.indexOf(`${req.params.name}.mp3`) === -1) {
+  if (fs.existsSync(dir+"/"+req.params.name+".mp3")) {
     //get id and name for YT(using crawler)
     const dv = SearchVideos(req.params.name);
     dv.then(result => {
