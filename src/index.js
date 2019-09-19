@@ -15,6 +15,14 @@ const dir = path.join(__dirname, 'musics');
 var music = '';
 const dl = new Downloader();
 
+ignoreFavicon = (req, res, next) => {
+  if (req.originalUrl === '/favicon.ico') {
+    res.status(204).json({nope: true});
+  } else {
+    next();
+  }
+}
+app.use(ignoreFavicon)
 //read all musics in directory
 const allFilesSync = (dir, fileList = []) => {
   fs.readdirSync(dir).forEach(file => {
