@@ -34,10 +34,10 @@
   //create stream in browser
   const create = (name, data) => {
     if (fs.existsSync(name + '.json'))
-      return JSON.parse(fs.readFileSync(name + '.json'))
+      return JSON.parse(fs.readFileSync(dir+"/"+name + '.json'))
     console.log('não existe')
     let nData = JSON.stringify(data)
-    fs.writeFileSync(name + '.json', nData)
+    fs.writeFileSync(dir+"/"+name + '.json', nData)
     return data
   }
   const exclude = async (name) => {
