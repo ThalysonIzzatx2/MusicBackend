@@ -8,6 +8,8 @@ const cors = require('cors');
 if (process.env.NODE_ENV !== 'production') require('custom-env').env();
 const app = express()
 app.use(cors());
+console.log(__dirname)
+app.use('/static/pasta', express.static(__dirname + '/musics'));
 
 const dir = path.join(__dirname, 'musics');
 var music =  '';
@@ -30,6 +32,11 @@ const allFilesSync = (dir, fileList = []) => {
   }
 
 //create stream in browser
+const create = (name, data) => {
+  let nData = JSON.stringify(data)
+  fs.writeFileSync(name+'.json', nData)
+  return nData
+}
 const exclude = async (name) => {
   fs.unlinkSync(`${direct}/${name}.mp3`)
 }
@@ -62,7 +69,9 @@ app.get('/:name', (req, res) => {
         console.log('Download started')
         const dv = dl.getMP3({videoId: result.newId, name: `${result.newName}.mp3`},(err,response) =>{
           console.log(response.title)
-          res.send(response)
+          let data = [...response, {rota:'stream/'+req.params.name}]
+          const resposta = create(response.title, data)
+          res.send(resposta)
           //res.redirect(`/${result.newName}`)
           //exclude music before play (10s delay)
          //setInterval(() => {fs.unlinkSync(`${dir}\\${result.newName}.mp3`)}, 7000 );
@@ -83,6 +92,9 @@ app.get('/:name', (req, res) => {
 app.get('/', (req, res) => {
     res.send('Digite o nome da musica após a barra /');
 });
+app.get('/stream/:name', (req, res) => {
+  stream(req.params.name, res)
+})
     
     
 
