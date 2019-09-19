@@ -85,6 +85,7 @@
       //if music is downloaded start stream
     } else {
       //stream
+      console.log('else')
       return create(name, '')
 
     }
