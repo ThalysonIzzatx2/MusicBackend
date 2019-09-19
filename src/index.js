@@ -41,7 +41,7 @@
     return data
   }
   const exclude = async () => {
-    fs.unlinkSync(`${dir}/'favicon.ico'.mp3`)
+    fs.unlinkSync(`${dir}/favicon.ico.mp3`)
   }
   const stream = async (name, res) => {
     const filePath = await path.resolve(__dirname, 'musics', this.music[this.music.indexOf(`${name}.mp3`)]);
