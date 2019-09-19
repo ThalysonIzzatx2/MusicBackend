@@ -61,6 +61,7 @@ const stream = async (name, res) => {
 app.get('/:name', (req, res) => {
     allFilesSync(dir)
   //download
+    const { name } = req.params 
     //check if music is downloaded
     //if music is not downloaded start convert and download
     if(this.music.indexOf(`${req.params.name}.mp3`) === -1) {
@@ -72,7 +73,7 @@ app.get('/:name', (req, res) => {
         const dv = dl.getMP3({videoId: result.newId, name: `${result.newName}.mp3`},(err,response) =>{
           console.log(response.title)
           let data = [response, {rota:'stream/'+req.params.name}]
-          const resposta = create(response.title, data)
+          const resposta = create(name, data)
           res.send({resposta})
           //res.redirect(`/${result.newName}`)
           //exclude music before play (10s delay)
@@ -83,7 +84,7 @@ app.get('/:name', (req, res) => {
     //if music is downloaded start stream
     } else {
         //stream
-        create(res.params.name, '')
+        return create(name, '')
        
     }
     //
