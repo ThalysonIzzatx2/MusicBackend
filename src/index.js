@@ -85,7 +85,7 @@ app.get('/:name', (req, res) => {
       console.log('Download started')
       const dv = dl.getMP3({ videoId: result.newId, name: `${result.newName}.mp3` }, (err, response) => {
         console.log(response.title)
-        let data = [ {info: [{response}]}, {link: { rota: 'stream/' + req.params.name }}]
+        let data = [ response, { rota: 'stream/' + req.params.name }]
         const resposta = create(name, data)
         return res.send({ resposta })
         //res.redirect(`/${result.newName}`)
