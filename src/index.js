@@ -85,9 +85,9 @@ app.get('/:name', (req, res) => {
       console.log('Download started')
       const dv = dl.getMP3({ videoId: result.newId, name: `${result.newName}.mp3` }, (err, response) => {
         console.log(response.title)
-        let data =  response
+        let data = [ response, { rota: 'stream/' + req.params.name }]
         const resposta = create(name, data)
-        return res.send({ resposta,rota: 'stream/' + req.params.name })
+        return res.send({ resposta })
         //res.redirect(`/${result.newName}`)
         //exclude music before play (10s delay)
         //setInterval(() => {fs.unlinkSync(`${dir}\\${result.newName}.mp3`)}, 7000 );
@@ -99,7 +99,7 @@ app.get('/:name', (req, res) => {
     //stream
     console.log('else', name)
     const resposta = create(name, '')
-    res.send({ resposta, rota: 'stream/' + req.params.name })
+    res.send({ resposta })
   }
   //
 
