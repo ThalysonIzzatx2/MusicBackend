@@ -77,7 +77,7 @@ app.get('/:name', (req, res) => {
   const { name } = req.params
   //check if music is downloaded
   //if music is not downloaded start convert and download
-  if (!fs.existsSync(dir+"/"+req.params.name+".mp3")) {
+  if (fs.existsSync(dir+"/"+req.params.name+".mp3")) {
     //get id and name for YT(using crawler)
     const dv = SearchVideos(req.params.name);
     dv.then(result => {
@@ -85,7 +85,7 @@ app.get('/:name', (req, res) => {
       console.log('Download started')
       const dv = dl.getMP3({ videoId: result.newId, name: `${result.newName}.mp3` }, (err, response) => {
         console.log(response.title)
-        let data = [response, { rota: 'stream/' + req.params.name }]
+        let data = [ {info: [{response}], link: { rota: 'stream/' + req.params.name }}]
         const resposta = create(name, data)
         return res.send({ resposta })
         //res.redirect(`/${result.newName}`)
