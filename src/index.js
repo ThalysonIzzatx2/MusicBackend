@@ -77,7 +77,7 @@ app.get('/:name', (req, res) => {
   const { name } = req.params
   //check if music is downloaded
   //if music is not downloaded start convert and download
-  if (fs.existsSync(dir+"/"+req.params.name+".mp3")) {
+  if (!fs.existsSync(dir+"/"+req.params.name+".mp3")) {
     //get id and name for YT(using crawler)
     const dv = SearchVideos(req.params.name);
     dv.then(result => {
