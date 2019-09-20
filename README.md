@@ -2,7 +2,7 @@
 
 <ul>
   <li><h3>Descrição:</h3>
-    <ul>Pequeno projeto que utiliza tanto de nodejs para criar um stream de áudio, quanto de ffmpeg para converter o vídeo selecionado em áudio.<br/><strong>Obs:</strong>É possivel utilizar para downloands das musicas, que nesse casa era uma necessidade minha no momento hehe :D</ul>
+    <ul><li>Pequeno projeto que utiliza tanto de nodejs para criar um stream de áudio, quanto de ffmpeg para converter o vídeo selecionado em áudio.</li><li><br/><strong>Obs:</strong>É possivel utilizar para downloads das musicas, que nesse casa era uma necessidade minha no momento hehe :D</li></ul>
   </li>
   <li><h3>Rotas:</h3>
   <ol>
