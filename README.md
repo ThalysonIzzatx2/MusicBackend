@@ -1,7 +1,9 @@
 <h1 align='center'>InsMusic - Backend</h1>
 
 <ul>
-  <li><h3>Descrição:</h3><br/></li>
+  <li><h3>Descrição:</h3>
+    <ul>Pequeno projeto que utiliza tanto de nodejs para criar um stream de áudio, quanto de ffmpeg para converter o vídeo selecionado em áudio.<br/><strong>Obs:</strong>É possivel utilizar para downloands das musicas, que nesse casa era uma necessidade minha no momento hehe :D</ul>
+  </li>
   <li><h3>Rotas:</h3>
   <ol>
     <li><strong>/nomedamusica :</strong> Retorna um json contendo informações sobre a musica e um link para o mp3</li>
@@ -12,8 +14,9 @@
   <li><h3>Instalação:</h3>
     <ol>
       <li>git clone https://github.com/ThalysonIzzatx2/MusicBackend</li>
+      <li>baixe o <a href="https://ffmpeg.org/download.html" title="ffmpeg">ffmpeg</a></li>
       <li><strong>npm install</strong> na pasta do projeto</li>
-      <li><strong>npm start</strong> na pasta do proejto</li>
+      <li><strong>npm start</strong> na pasta do proejeto</li>
       <li>acesse no navegador digitando <strong>localhost:8081</trong></li>
     </ol>
   </li>
