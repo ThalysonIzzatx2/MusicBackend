@@ -1,4 +1,4 @@
-<h1 align='center'>InsMusic - Backend</h1>
+<h1 align='center'>InstMusic - Backend</h1>
 
 <ul>
   <li><h3>Descrição:</h3>
